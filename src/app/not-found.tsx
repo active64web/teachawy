@@ -1,9 +1,5 @@
-const NotFound = () => {
-    return (
-        <div className="not-found">
-            <h1 style={{ textAlign: "center" }}>صفحة غير موجوده</h1>
-        </div>
-    );
-}
+import { redirect } from 'next/navigation';
 
-export default NotFound;
+export default function RootNotFound() {
+    redirect('/ar/404');
+}

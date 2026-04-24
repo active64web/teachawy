@@ -35,5 +35,5 @@ export const config = {
 // export default createMiddleware(routing);
 
 // export const config = {
-//     matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)'
+//     matcher: ['/((?!api|_next|_vercel|.*\\..*).*)', '/', '/(ar|en)/:path*']
 // };

@@ -1,0 +1,160 @@
+.not-found-wrapper {
+    padding: 70px 0 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    font-family: inherit;
+
+    .container {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        max-width: 700px;
+        padding-inline: 20px;
+    }
+
+    .error-visual {
+        margin-bottom: 30px;
+        perspective: 1000px;
+
+        .number-3d {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            font-size: clamp(120px, 20vw, 180px);
+            font-weight: 900;
+            color: var(--main-color);
+            line-height: 1;
+            transform: rotateX(10deg);
+
+            span {
+                text-shadow:
+                    2px 2px 0px #ddd,
+                    4px 4px 0px #ccc,
+                    10px 10px 30px rgba(0, 31, 63, 0.1);
+            }
+
+            .circle-icon {
+                color: var(--secondary-color);
+                animation: floatIcon 4s infinite ease-in-out;
+                filter: drop-shadow(0 15px 30px rgba(217, 160, 60, 0.3));
+            }
+        }
+
+        .shadow-3d {
+            width: 200px;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.05);
+            margin: -20px auto 0;
+            border-radius: 50%;
+            filter: blur(8px);
+        }
+    }
+
+    .error-text {
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+
+            .btn-home {
+                background: var(--main-color);
+                color: #fff;
+                padding: 14px 28px;
+                border-radius: 12px;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                transition: 0.3s;
+
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 25px rgba(0, 31, 63, 0.2);
+                }
+            }
+
+            .btn-back {
+                background: transparent;
+                border: 2px solid #eee;
+                color: var(--main-color);
+                padding: 14px 28px;
+                border-radius: 12px;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &:hover {
+                    border-color: var(--main-color);
+                    background: #f9f9f9;
+                }
+            }
+        }
+    }
+
+    .decorative-blobs {
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 1;
+            opacity: 0.08;
+
+            &-main {
+                width: 400px;
+                height: 400px;
+                top: -100px;
+                left: -100px;
+                background: var(--main-color);
+            }
+
+            &-sub {
+                width: 300px;
+                height: 300px;
+                bottom: -50px;
+                right: -50px;
+                background: var(--secondary-color);
+            }
+        }
+    }
+}
+
+@keyframes floatIcon {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(10deg);
+    }
+}
+
+[dir="rtl"] .btn-back svg {
+    transform: rotate(180deg);
+}
+
+// عشان السهم يلف في العربي

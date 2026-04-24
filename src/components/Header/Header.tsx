@@ -59,7 +59,7 @@ const Header = () => {
                     <ul>
                         <li><Link href="/" onClick={() => setOpenMenu(false)}>{t('home')}</Link></li>
                         <li><Link href="/about" onClick={() => setOpenMenu(false)}>{t('about')}</Link></li>
-                        <li><Link href="/pricing" onClick={() => setOpenMenu(false)}>{t('pricing')}</Link></li>
+                        <li><Link href="/plans" onClick={() => setOpenMenu(false)}>{t('plans')}</Link></li>
                         <li className="lang" ref={menuRef}>
                             <button onClick={() => setShowLang(prev => !prev)}>
                                 <ChevronDown size={18} /> {locale === "ar" ? "العربية" : "English"}

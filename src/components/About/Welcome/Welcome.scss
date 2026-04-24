@@ -1,0 +1,116 @@
+.about-welcome {
+    padding: 50px 0 90px;
+    background-color: #fff;
+    position: relative;
+
+    .content-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 70px;
+        flex-wrap: wrap;
+
+        .text-side {
+            flex: 1.1;
+            min-width: 350px;
+
+            .badge {
+                color: var(--secondary-color);
+                font-size: 14px;
+                font-weight: 700;
+                margin-bottom: 15px;
+                display: inline-block;
+                letter-spacing: 0.5px;
+            }
+
+            h2 {
+                font-size: 34px; // حجم متزن مش ضخم
+                color: var(--main-color);
+                line-height: 1.35;
+                margin-bottom: 22px;
+                font-weight: 800;
+            }
+
+            p {
+                font-size: 17px; // خط مريح للقراءة
+                color: var(--text-muted);
+                line-height: 1.85;
+                margin-bottom: 35px;
+                max-width: 550px;
+                font-weight: 400;
+            }
+
+            .values-list {
+                display: flex;
+                flex-direction: column;
+                gap: 18px;
+                border-top: 1px solid #f3f3f3;
+                padding-top: 30px;
+
+                .value-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+
+                    .icon-dot {
+                        width: 8px;
+                        height: 8px;
+                        background: var(--secondary-color);
+                        border-radius: 2px; // شكل مربع صغير بيدي لمسة تقنية أكتر من الدائرة
+                        transform: rotate(45deg);
+                    }
+
+                    span {
+                        font-size: 16px;
+                        color: var(--main-color);
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+
+        .image-side {
+            flex: 0.9;
+            min-width: 320px;
+            display: flex;
+            justify-content: center;
+
+            .lottie-container {
+                width: 100%;
+                max-width: 480px;
+
+                .lottie-player {
+                    width: 100%;
+                    // فلتر خفيف يخلي الأنيميشن "هادي" مش فاقع
+                    filter: drop-shadow(0 15px 30px rgba(0, 86, 179, 0.08));
+                }
+            }
+        }
+    }
+}
+
+// التوافق مع الموبايل
+@media (max-width: 992px) {
+    .about-welcome {
+        padding-block: 60px;
+        text-align: center;
+
+        .content-wrapper {
+            flex-direction: column-reverse;
+            gap: 40px;
+
+            .text-side {
+                p {
+                    margin-inline: auto;
+                }
+
+                .values-list {
+                    align-items: center;
+
+                    .value-item {
+                        text-align: start;
+                    }
+                }
+            }
+        }
+    }
+}

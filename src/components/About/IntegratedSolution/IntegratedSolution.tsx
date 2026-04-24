@@ -1,68 +1,50 @@
+'use client';
+import { ShieldCheck, LayoutDashboard, Globe } from "lucide-react";
 import "./IntegratedSolution.scss";
-import Image from "next/image";
 
-interface Props {
-    locale: string
-}
-
-const IntegratedSolution = ({ locale }: Props) => {
+const IntegratedSolution = ({ locale }: { locale: string }) => {
     const isAr = locale === "ar";
 
-    const list = [
+    const solutions = [
         {
-            desc: isAr
-                ? "حماية كاملة للمحتوى التعليمي مع بيئة آمنة لإدارة الدروس والبيانات."
-                : "Full content protection with a secure environment to manage lessons and data.",
+            icon: <ShieldCheck size={32} />,
+            title: isAr ? "حماية تتجاوز التوقعات" : "Security Beyond Expectations",
+            desc: isAr ? "نظام تشفير متطور يمنع تسجيل الشاشة وتحميل الفيديوهات لضمان بقاء مجهودك لك وحدك." : "Advanced encryption that prevents screen recording and downloads to ensure your effort remains yours."
         },
         {
-            desc: isAr
-                ? "استضافة قوية وسيرفرات مستقرة تضمن سرعة وأداء عالي بدون انقطاع."
-                : "Powerful hosting and stable servers ensuring high speed and uninterrupted performance.",
+            icon: <LayoutDashboard size={32} />,
+            title: isAr ? "لوحة تحكم ذكية" : "Smart Dashboard",
+            desc: isAr ? "واجهة بسيطة تمكنك من إدارة طلابك، فيديوهاتك، واختباراتك في مكان واحد وبأقل مجهود." : "A simple interface to manage your students, videos, and exams in one place with minimal effort."
         },
         {
+            icon: <Globe size={32} />,
+            title: isAr ? "انطلق بهويتك الخاصة" : "Launch with Your Identity",
             desc: isAr
-                ? "تنظيم احترافي للكورسات والطلاب مع تجربة استخدام سهلة وواضحة."
-                : "Professional organization of courses and students with a smooth user experience.",
-        },
-        {
-            desc: isAr
-                ? "منصة مرنة قابلة للنمو، تبدأ بسيطة وتكبر مع توسّع نشاطك."
-                : "A flexible platform that starts simple and scales as your educational business grows.",
-        },
-    ]
+                ? "ابدأ فوراً بنطاق فرعي مجاني (YourName.teachawy.com)، مع إمكانية ربط نطاقك الخاص بالكامل في أي وقت لتعزيز علامتك التجارية."
+                : "Start instantly with a free subdomain (YourName.teachawy.com), with the ability to link your own custom domain anytime."
+        }
+    ];
 
     return (
-        <div className="integrated-solution">
+        <section className="integrated-solution">
             <div className="container">
-                <div className="image">
-                    <Image
-                        src="/images/what-we-offer.png"
-                        alt="what-we-offer"
-                        width={500}
-                        height={500}
-                        style={{ objectFit: "contain" }}
-                    />
+                <div className="section-header">
+                    <h2>{isAr ? "حلول ذكية لنمو تعليمك" : "Smart Solutions for Growth"}</h2>
+                    <div className="line"></div>
                 </div>
 
-                <div className="content">
-                    <h2>
-                        {locale === "ar"
-                            ? "حل متكامل لإدارة التعليم باحترافية"
-                            : "A Complete Solution for Professional Learning Management"}
-                    </h2>
-
-                    <ul className="list">
-                        {list.map((el, idx) => (
-                            <li key={idx}>
-                                <span>{`0${idx + 1}`}</span>
-                                <p>{el.desc}</p>
-                            </li>
-                        ))}
-                    </ul>
+                <div className="solutions-grid">
+                    {solutions.map((item, index) => (
+                        <div className="solution-card" key={index}>
+                            <div className="icon-box">{item.icon}</div>
+                            <h3>{item.title}</h3>
+                            <p>{item.desc}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
-}
+};
 
 export default IntegratedSolution;

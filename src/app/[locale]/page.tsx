@@ -3,7 +3,7 @@ import { getLocale } from 'next-intl/server';
 import OnePlatform from "@/components/Home/OnePlatform/OnePlatform";
 import WhatWeOffer from "@/components/Home/WhatWeOffer/WhatWeOffer";
 import WhyChooseUs from "@/components/Home/WhyChooseUs/WhyChooseUs";
-import Statistics from "@/components/Statistics/Statistics";
+import Statistics from "@/components/Home/Statistics/Statistics";
 import Hero from '@/components/Home/Hero/Hero';
 import Testimonials from '@/components/Home/Testimonials/Testimonials';
 import CTA from '@/components/Home/CTA/CTA';

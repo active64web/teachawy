@@ -4,9 +4,7 @@ export default function sitemap() {
     const pages = [
         '',
         '/about',
-        '/how-it-works',
-        '/faq',
-        '/pricing',
+        '/plans'
     ];
 
     const urls = [];
