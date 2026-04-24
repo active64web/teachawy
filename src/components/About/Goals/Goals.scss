@@ -1,0 +1,41 @@
+.goals {
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            gap: 10px;
+            background-color: transparent;
+            padding: 25px 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px 0 #8888883b;
+
+            .icon {
+                color: var(--main_color);
+            }
+
+            h3 {
+                font-size: clamp(18px, 4vw, 22px);
+            }
+
+            p {
+                font-size: clamp(16px, 4vw, 17px);
+                line-height: 1.6;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .goals {
+        .container {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

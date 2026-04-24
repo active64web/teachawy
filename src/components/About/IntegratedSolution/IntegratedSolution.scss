@@ -1,0 +1,117 @@
+.integrated-solution {
+    margin-block: 80px;
+    padding-block: 30px;
+    background-color: #FFF;
+    position: relative;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        height: 20px;
+        width: 100%;
+        left: 0;
+        background: url("/images/rip.svg") bottom;
+        background-size: 45%;
+    }
+
+    &::before {
+        top: 100%;
+    }
+
+    &::after {
+        bottom: 100%;
+        transform: rotate(180deg);
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        >div {
+            width: calc(100% / 2 - 10px);
+        }
+
+        .content {
+            h2 {
+                margin-bottom: 30px;
+                line-height: 1.7;
+            }
+
+            .list {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                li {
+                    background-color: #ebebeb;
+                    position: relative;
+                    padding: 20px;
+                    padding-inline-start: 35px;
+                    border-radius: 10px;
+
+                    span {
+                        position: absolute;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        inset-inline-start: -25px;
+                        background-color: var(--main_color);
+                        color: #FFF;
+                        width: 45px;
+                        height: 45px;
+                        font-size: 20px;
+                        border-radius: 50%;
+                    }
+
+                    h4 {
+                        margin-bottom: 10px;
+                        font-size: clamp(17px, 4vw, 19px);
+                    }
+
+                    p {
+                        font-size: clamp(15px, 4vw, 17px);
+                        line-height: 1.6;
+                    }
+                }
+            }
+        }
+
+        .image {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .integrated-solution {
+        .container {
+            .image {
+                display: none;
+            }
+
+            .content {
+                width: 100%;
+
+                h2 {
+                    text-align: center;
+                }
+
+                .list {
+                    li {
+                        padding-inline-start: 45px;
+
+                        span {
+                            inset-inline-start: -11px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

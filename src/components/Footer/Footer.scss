@@ -1,0 +1,163 @@
+.footer {
+    background-color: var(--main-color);
+    color: #fff;
+    padding-top: 60px;
+    position: relative;
+
+    .main-footer {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+        gap: 40px;
+        padding-bottom: 50px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+        .col {
+            h3 {
+                font-size: 20px;
+                font-weight: 700;
+                margin-bottom: 25px;
+                color: var(--secondary-color); // اللون الذهبي للعناوين
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                a {
+                    color: rgba(255, 255, 255, 0.7);
+                    transition: 0.3s;
+                    font-size: 16px;
+
+                    &:hover {
+                        color: var(--secondary-color);
+                        padding-inline-start: 5px;
+                    }
+                }
+            }
+        }
+
+        .info-col {
+            .logo {
+                margin-bottom: 5px;
+            }
+
+            .description {
+                font-size: 15px;
+                line-height: 1.8;
+                color: rgba(255, 255, 255, 0.7);
+                margin-bottom: 25px;
+                max-width: 300px;
+            }
+
+            .social {
+                display: flex;
+                gap: 15px;
+
+                a {
+                    width: 38px;
+                    height: 38px;
+                    background: rgba(255, 255, 255, 0.05);
+                    border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fff;
+                    transition: 0.3s;
+
+                    &:hover {
+                        background: var(--secondary-color);
+                        transform: translateY(-3px);
+                    }
+                }
+            }
+        }
+
+        .newsletter-col {
+            p {
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.6);
+                margin-bottom: 20px;
+            }
+
+            .newsletter-form {
+                display: flex;
+                background: rgba(255, 255, 255, 0.05);
+                padding: 6px;
+                border-radius: 12px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+
+                input {
+                    background: transparent;
+                    border: none;
+                    padding: 10px 15px;
+                    color: #fff;
+                    flex: 1;
+                    outline: none;
+
+                    &::placeholder {
+                        color: rgba(255, 255, 255, 0.3);
+                    }
+                }
+
+                button {
+                    background: var(--secondary-color);
+                    color: #fff;
+                    border: none;
+                    width: 45px;
+                    height: 45px;
+                    border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    transition: 0.3s;
+
+                    &:hover {
+                        filter: brightness(1.1);
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom-footer {
+        padding-block: 30px;
+        text-align: center;
+
+        p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+    }
+}
+
+// التوافق مع الشاشات
+@media (max-width: 1024px) {
+    .footer .main-footer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer .main-footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+
+        .info-col .social,
+        .info-col .logo {
+            justify-content: center;
+        }
+
+        .info-col .description {
+            margin-inline: auto;
+        }
+
+        .newsletter-col .newsletter-form {
+            max-width: 100%;
+        }
+    }
+}

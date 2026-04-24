@@ -1,0 +1,10 @@
+{
+    "navLins": {
+        "home": "Home",
+        "about": "About Us",
+        "pricing": "Pricing",
+        "how_it_works": "How it works?",
+        "know": "Know",
+        "start_now": "Start Now"
+    }
+}

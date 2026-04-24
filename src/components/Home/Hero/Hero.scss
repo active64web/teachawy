@@ -1,0 +1,277 @@
+.hero {
+    position: relative;
+    padding: 70px 0 50px 0;
+    background-color: var(--main-bg);
+    overflow: hidden;
+
+    .hero-visual-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.8;
+        mask-image: radial-gradient(circle, black 70%, transparent 100%);
+        -webkit-mask-image: radial-gradient(circle, black 70%, transparent 100%);
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 60px;
+
+        .content {
+            flex: 1;
+            max-width: 580px;
+
+            .badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 6px 16px;
+                background-color: rgba(0, 86, 179, 0.08);
+                color: var(--main-color);
+                border-radius: 50px;
+                font-size: 14px;
+                font-weight: 700;
+                margin-bottom: 25px;
+                border: 1px solid rgba(0, 86, 179, 0.15);
+                backdrop-filter: blur(4px);
+            }
+
+            // ... باقي ستايلات النصوص (H1, H2, P) كما هي في كودك ...
+            h1 {
+                font-size: clamp(34px, 5vw, 58px);
+                color: var(--text-color);
+                line-height: 1.1;
+                margin-bottom: 20px;
+                font-weight: 800;
+
+                .dot {
+                    color: var(--secondary-color);
+                }
+            }
+
+            h2 {
+                font-size: clamp(20px, 3vw, 26px);
+                color: var(--main-color);
+                margin-bottom: 25px;
+                font-weight: 700;
+            }
+
+            p {
+                font-size: 18px;
+                color: var(--text-muted);
+                line-height: 1.8;
+                margin-bottom: 40px;
+            }
+
+            .hero-links {
+                display: flex;
+                gap: 20px;
+
+                .btn-primary {
+                    background-color: var(--secondary-color);
+                    color: #fff;
+                    padding: 16px 36px;
+                    border-radius: 14px;
+                    font-weight: 700;
+                    box-shadow: 0 6px 20px rgba(217, 160, 60, 0.35);
+                    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+                    &:hover {
+                        transform: translateY(-5px);
+                        background-color: var(--main-color);
+                    }
+                }
+
+                .btn-secondary {
+                    color: var(--main-color);
+                    font-weight: 700;
+
+                    &:hover {
+                        transform: translateX(5px);
+                        color: var(--secondary-color);
+                    }
+                }
+            }
+        }
+
+        /* --- استبدال الـ Slider-wrapper بالـ Visual Preview --- */
+        .visual-preview {
+            flex: 1;
+            position: relative;
+            perspective: 1500px; // لعمل تأثير العمق
+            display: flex;
+            justify-content: flex-end;
+
+            .main-mockup {
+                position: relative;
+                z-index: 2;
+                transform: rotateY(-15deg) rotateX(8deg); // تمييل الواجهة
+                animation: floatDashboard 6s ease-in-out infinite;
+                filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.12));
+                transition: 0.5s ease;
+
+                img {
+                    border-radius: 24px;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                }
+
+                &:hover {
+                    transform: rotateY(-5deg) rotateX(5deg);
+                }
+            }
+
+            // أيقونات طائرة
+            .floating-element {
+                position: absolute;
+                z-index: 5;
+                filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+
+                &.el-1 {
+                    top: 10%;
+                    right: -20px;
+                    animation: floatIcon 4s infinite;
+                }
+
+                &.el-2 {
+                    bottom: 15%;
+                    left: 0;
+                    animation: floatIcon 5s infinite 1s;
+                }
+
+                &.el-3 {
+                    top: 40%;
+                    right: -40px;
+                    animation: floatIcon 3s infinite 0.5s;
+                }
+            }
+
+            .stat-card {
+                position: absolute;
+                bottom: 10%;
+                right: 15%;
+                z-index: 6;
+                background: rgba(255, 255, 255, 0.9);
+                backdrop-filter: blur(10px);
+                padding: 10px 18px;
+                border-radius: 50px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+                animation: floatIcon 4.5s infinite;
+
+                .pulse {
+                    width: 8px;
+                    height: 8px;
+                    background: #22c55e;
+                    border-radius: 50%;
+                    box-shadow: 0 0 0 rgba(34, 197, 94, 0.4);
+                    animation: pulseEffect 2s infinite;
+                }
+
+                span {
+                    font-size: 13px;
+                    font-weight: 700;
+                    color: #333;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}
+
+// --- Animations ---
+@keyframes floatDashboard {
+
+    0%,
+    100% {
+        transform: rotateY(-15deg) rotateX(8deg) translateY(0);
+    }
+
+    50% {
+        transform: rotateY(-15deg) rotateX(8deg) translateY(-20px);
+    }
+}
+
+@keyframes floatIcon {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes pulseEffect {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+}
+
+// --- Responsive ---
+@media (max-width: 992px) {
+    .hero {
+        padding-block: 60px;
+
+        .container {
+            flex-direction: column;
+            gap: 30px;
+
+            .content {
+                max-width: 100%;
+                text-align: center;
+
+                .hero-links {
+                    justify-content: center;
+                }
+            }
+
+            .visual-preview {
+                width: 100%;
+                justify-content: center;
+
+                .main-mockup {
+                    transform: rotateY(0) rotateX(0);
+                    animation: floatSimple 4s infinite;
+                }
+
+                .floating-element {
+                    display: none;
+                }
+
+                // تقليل الزحمة في الموبايل
+            }
+        }
+    }
+}
+
+@keyframes floatSimple {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}

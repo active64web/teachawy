@@ -1,0 +1,123 @@
+.cta-section {
+    padding-bottom: 80px;
+    background-color: var(--main-bg);
+
+    .container {
+        max-width: 1100px;
+    }
+
+    .cta-box {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--main-color) 0%, #003a7a 100%);
+        padding: 80px 40px;
+        border-radius: 40px;
+        text-align: center;
+        // بروز 3D قوي
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 8px solid var(--secondary-color);
+        box-shadow: 0 20px 50px rgba(0, 86, 179, 0.3);
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(217, 160, 60, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+
+            h2 {
+                color: #fff;
+                font-size: clamp(28px, 5vw, 42px);
+                font-weight: 800;
+                margin-bottom: 20px;
+                line-height: 1.2;
+            }
+
+            p {
+                color: rgba(255, 255, 255, 0.8);
+                font-size: clamp(16px, 3vw, 19px);
+                margin-bottom: 40px;
+                max-width: 700px;
+                margin-inline: auto;
+            }
+
+            .btn-white {
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                background-color: #fff;
+                color: var(--main-color);
+                padding: 18px 45px;
+                border-radius: 18px;
+                font-weight: 800;
+                font-size: 18px;
+                transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+                &:hover {
+                    transform: scale(1.05) translateY(-5px);
+                    background-color: var(--secondary-color);
+                    color: #fff;
+                    box-shadow: 0 15px 30px rgba(217, 160, 60, 0.4);
+                }
+
+                .rotate-180 {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        // --- انيميشن الأيقونات الطائرة ---
+        .floating-icon {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.15);
+            pointer-events: none;
+            z-index: 1;
+
+            &.icon-1 {
+                top: 15%;
+                left: 10%;
+                animation: float 6s ease-in-out infinite;
+            }
+
+            &.icon-2 {
+                bottom: 20%;
+                right: 12%;
+                animation: float 8s ease-in-out infinite reverse;
+            }
+        }
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(15deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .cta-box {
+        padding: 60px 20px;
+        border-radius: 30px;
+
+        .floating-icon {
+            display: none;
+        }
+
+        // تقليل الزحمة في الموبايل
+    }
+}

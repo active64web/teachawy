@@ -1,0 +1,132 @@
+.why-choose-us {
+    padding-bottom: 80px;
+    background-color: #fff;
+    overflow: hidden;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+
+        // تقسيم المساحة بالتساوي
+        .content-side,
+        .image-side {
+            flex: 1;
+            width: 50%;
+        }
+
+        .content-side {
+            h2 {
+                font-size: clamp(24px, 4vw, 34px);
+                font-weight: 800;
+                margin-bottom: 40px;
+                color: #333;
+            }
+
+            .reasons-list {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                list-style: none;
+                padding: 0;
+
+                .reason-item {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 20px;
+                    background-color: #fcfcfc;
+                    padding: 20px;
+                    border-radius: 15px;
+                    border: 1px solid rgba(0, 0, 0, 0.05);
+                    // بروز الـ 3D اللي طلبته
+                    border-bottom: 4px solid #eee;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        transform: translateY(-5px);
+                        border-bottom-color: var(--main-color, #0056b3);
+                        background-color: #fff;
+                        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+                    }
+
+                    .num {
+                        flex-shrink: 0;
+                        width: 45px;
+                        height: 45px;
+                        background-color: var(--main-color, #0056b3);
+                        color: #fff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 10px;
+                        font-weight: 800;
+                        font-size: 18px;
+                    }
+
+                    .text {
+                        h4 {
+                            font-size: 18px;
+                            font-weight: 700;
+                            margin-bottom: 5px;
+                            color: #222;
+                        }
+
+                        p {
+                            font-size: 15px;
+                            color: #666;
+                            line-height: 1.6;
+                        }
+                    }
+                }
+            }
+        }
+
+        .image-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .lottie-wrapper {
+                width: 100%;
+                max-width: 550px;
+                height: auto;
+                aspect-ratio: 1 / 1;
+                position: relative;
+            }
+        }
+    }
+}
+
+// --- Responsive ---
+@media (max-width: 991px) {
+    .why-choose-us {
+        .container {
+            flex-direction: column;
+            text-align: center;
+
+            .content-side,
+            .image-side {
+                width: 100%;
+            }
+
+            .image-side {
+                order: -1; // الصورة فوق في الموبايل
+                margin-bottom: 40px;
+            }
+
+            .reasons-list .reason-item {
+                text-align: start; // الحفاظ على اتجاه النص داخل الكارت
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .why-choose-us .container .content-side .reasons-list .reason-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+}

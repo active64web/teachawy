@@ -1,0 +1,89 @@
+.statistics {
+    padding-block: 80px;
+    background-color: var(--main-bg);
+    position: relative;
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 40px; // زودنا الـ gap عشان الـ 3D ياخد مساحته
+
+        .stat-card {
+            background-color: #fff;
+            text-align: center;
+            padding: 40px 25px;
+            border-radius: 20px;
+
+            // --- سر الـ 3D الثابت ---
+            // 1. border جانبي وسفلي غامق بيدي إيحاء بالسُمك (Thickness)
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 6px solid #e0e0e0; // سُمك الكارت من تحت
+
+            // 2. ظل ثابت بيدي إيحاء بالارتفاع
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+
+            &:hover {
+                // هوفر بسيط: الكارت ينزل لتحت شوية (بيضغط) والـ border يصغر
+                transform: translateY(4px);
+                border-bottom-width: 2px; // كأنه اتبعص أو اتضغط
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+
+                .stat-icon {
+                    color: var(--secondary-color);
+                    transform: scale(1.1);
+                }
+            }
+
+            .stat-icon {
+                width: 75px;
+                height: 75px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: var(--section-bg);
+                color: var(--main-color);
+                border-radius: 18px; // مربع بحواف ناعمة بيدي شكل 3D أقوى
+                margin-bottom: 20px;
+                transition: all 0.3s ease;
+
+                // سُمك للأيقونة نفسها
+                border-bottom: 4px solid rgba(0, 0, 0, 0.05);
+            }
+
+            h3 {
+                font-size: 20px;
+                font-weight: 800;
+                color: var(--text-color);
+                margin-bottom: 12px;
+            }
+
+            p {
+                font-size: 15px;
+                color: var(--text-muted);
+                line-height: 1.7;
+            }
+        }
+    }
+}
+
+// Responsive
+@media (max-width: 767px) {
+    .statistics {
+        padding-block: 60px;
+
+        .stats-grid {
+            gap: 25px;
+
+            .stat-card {
+                padding: 30px 20px;
+                border-bottom-width: 4px; // تقليل السمك شوية للموبايل
+            }
+        }
+    }
+}

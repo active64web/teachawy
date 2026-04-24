@@ -1,0 +1,149 @@
+.testimonials {
+    padding-bottom: 70px;
+    background-color: var(--main-bg);
+    overflow: hidden;
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 30px;
+
+        h2 {
+            font-size: clamp(24px, 4vw, 34px);
+            font-weight: 800;
+            color: var(--main-color);
+        }
+
+        .title-line {
+            width: 55px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 12px auto 0;
+            border-radius: 10px;
+        }
+    }
+
+    .marquee-wrapper {
+        display: flex;
+        width: 100%;
+        mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+
+        .marquee-content {
+            display: flex;
+            gap: 30px;
+            padding: 20px 0;
+            width: max-content;
+            animation: scroll-infinite 30s linear infinite;
+
+            &:hover {
+                animation-play-state: paused;
+            }
+        }
+    }
+
+    .testi-card {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        width: 320px; // صغرنا العرض من 380 لـ 320
+        min-height: 260px; // قللنا الارتفاع الكلي
+        background: #fff;
+        padding: 25px; // قللنا الـ Padding داخلياً
+        border-radius: 20px;
+        border: 1px solid rgba(0, 86, 179, 0.08);
+        border-bottom: 5px solid #e8e8e8;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+        transition: all 0.4s ease;
+
+        .quote-icon {
+            flex-shrink: 0;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            opacity: 0.7;
+
+            &.flip {
+                transform: scaleX(-1);
+            }
+        }
+
+        .text {
+            flex-grow: 1;
+            font-size: 15px; // صغرنا الفونت شوية عشان يليق مع حجم الكارت
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .user-info {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 15px;
+            border-top: 1px solid #f2f2f2;
+            margin-top: auto;
+
+            .avatar {
+                width: 40px; // صغرنا الأفاتار
+                height: 40px;
+                background: linear-gradient(135deg, var(--main-color), #003a7a);
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .details {
+                .name-with-icon {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+
+                    h4 {
+                        font-size: 15px;
+                        font-weight: 700;
+                        color: var(--main-color);
+                        margin: 0;
+                    }
+
+                    .verified-badge {
+                        width: 6px;
+                        height: 6px;
+                        background-color: var(--secondary-color);
+                        border-radius: 50%;
+                    }
+                }
+
+                span {
+                    font-size: 12px;
+                    color: #888;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        &:hover {
+            transform: translateY(-8px);
+            border-bottom-color: var(--secondary-color);
+            box-shadow: 0 15px 30px rgba(0, 86, 179, 0.1);
+        }
+    }
+}
+
+@keyframes scroll-infinite {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-33.333% - 10px));
+    }
+}
+
+@media (max-width: 767px) {
+    .testi-card {
+        width: 300px;
+        padding: 25px;
+    }
+}

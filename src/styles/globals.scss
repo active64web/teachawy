@@ -1,0 +1,104 @@
+:root {
+    --main-color: #0056B3;
+    /* الأزرق الصريح بتاع اللوجو */
+    --secondary-color: #D9A03C;
+    /* الذهبي بتاع الشعلة */
+    --main-bg: #FFFFFF;
+    /* أبيض صريح عشان الموقع "ينور" */
+    --section-bg: #F8FAFF;
+    /* رمادي مزرق خفيف جداً لفصل السكاشن */
+    --text-color: #1A1A1A;
+    /* أسود شيك بدل الرمادي الغامق */
+    --text-muted: #666666;
+    /* للنصوص الجانبية */
+}
+
+/* ضبط الخطوط والاتجاهات */
+html[lang="en"] {
+    --font-family: var(--font-en);
+    direction: ltr;
+}
+
+html[lang="ar"] {
+    --font-family: var(--font-ar);
+    direction: rtl;
+}
+
+*,
+input,
+button,
+textarea,
+select {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    outline: none;
+    text-decoration: none;
+    font-family: var(--font-family);
+}
+
+body {
+    background-color: var(--main-bg);
+    color: var(--text-color);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* تحسين السكرول بار */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--main-bg);
+}
+
+/* الحاوية - Container */
+.container {
+    margin-inline: auto;
+    padding-inline: 20px;
+    width: 100%;
+    max-width: 1300px;
+}
+
+/* Loading Page - تحديث الألوان */
+.loading-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--main-bg);
+    z-index: 9999;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid var(--section-bg);
+    border-top: 4px solid var(--secondary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
