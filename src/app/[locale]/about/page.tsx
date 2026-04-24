@@ -2,7 +2,7 @@ import Goals from "@/components/About/Goals/Goals";
 import IdeaTeachawy from "@/components/About/IdeaTeachawy/IdeaTeachawy";
 import IntegratedSolution from "@/components/About/IntegratedSolution/IntegratedSolution";
 import Welcome from "@/components/About/Welcome/Welcome";
-import Cta from "@/components/Cta/Cta";
+// import Cta from "@/components/Cta/Cta";
 import HeadPage from "@/components/HeadPage/HeadPage";
 import { Metadata } from "next";
 import { getLocale } from "next-intl/server";
@@ -53,7 +53,7 @@ export default async function About() {
             <Goals locale={locale} />
             <IntegratedSolution locale={locale} />
             <IdeaTeachawy locale={locale} />
-            <Cta locale={locale} />
+            {/* <Cta locale={locale} /> */}
         </div>
     );
 }
