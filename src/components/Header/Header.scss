@@ -40,9 +40,28 @@ html[lang="en"] {
                     color: var(--text-color);
                     font-weight: 500;
                     transition: 0.3s;
+                    position: relative;
+                    padding-bottom: 4px;
+                    display: inline-block;
 
-                    &:hover {
+                    &:hover,
+                    &.active {
                         color: var(--main-color);
+                    }
+
+                    &.active {
+                        font-weight: 700;
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 2px;
+                            background-color: var(--main-color);
+                            border-radius: 2px;
+                        }
                     }
                 }
 
@@ -109,7 +128,6 @@ html[lang="en"] {
                 cursor: pointer;
             }
 
-            // زرار ابدأ الآن - حجم متوسط ومظبوط
             .btn-start {
                 display: inline-block;
                 background-color: var(--secondary-color);
@@ -131,87 +149,87 @@ html[lang="en"] {
     }
 }
 
-// الـ Responsive (الموبايل والتابلت)
 @media (max-width: 1000px) {
-    .header {
-        .container {
-            nav {
-                position: absolute;
-                top: 100%;
-                inset-inline-start: 0;
-                width: 100%;
-                background-color: var(--main-color);
-                padding: 25px;
-                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-                transition: 0.4s ease;
+    .header .container {
+        nav {
+            position: absolute;
+            top: 100%;
+            inset-inline-start: 0;
+            width: 100%;
+            background-color: var(--main-color);
+            padding: 25px;
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            transition: 0.4s ease;
 
-                &.open {
-                    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            &.open {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            ul {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+
+                li.lang {
+                    display: none;
                 }
 
-                ul {
-                    flex-direction: column;
-                    align-items: flex-start;
-                    gap: 20px;
+                li a {
+                    color: #fff !important;
+                    font-size: 18px;
+                    padding-bottom: 5px;
 
-                    li.lang {
-                        display: none;
+                    &.active::after {
+                        background-color: #fff;
                     }
+                }
+            }
+        }
 
-                    li a {
-                        color: #fff !important;
-                        font-size: 18px;
+        .header-actions {
+            .lang-phone {
+                display: block;
+                position: relative;
+
+                button {
+                    background: none;
+                    border: none;
+                    color: var(--main-color);
+                    font-weight: 600;
+                    font-size: 15px;
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                }
+
+                .menu-lang {
+                    position: absolute;
+                    top: calc(100% + 10px);
+                    inset-inline-end: 0;
+                    background: #fff;
+                    padding: 10px;
+                    border-radius: 8px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                    min-width: 100px;
+                    z-index: 100;
+
+                    a {
+                        color: var(--text-color) !important;
+                        font-size: 14px;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        justify-content: center;
                     }
                 }
             }
 
-            .header-actions {
-                .lang-phone {
-                    display: block;
-                    position: relative;
+            .menu-icon {
+                display: flex;
+            }
 
-                    button {
-                        background: none;
-                        border: none;
-                        color: var(--main-color);
-                        font-weight: 600;
-                        font-size: 15px;
-                        display: flex;
-                        align-items: center;
-                        gap: 4px;
-                    }
-
-                    .menu-lang {
-                        position: absolute;
-                        top: calc(100% + 10px);
-                        inset-inline-end: 0;
-                        transform: none;
-                        background: #fff;
-                        padding: 10px;
-                        border-radius: 8px;
-                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                        min-width: 100px;
-                        z-index: 100;
-
-                        a {
-                            color: var(--text-color) !important;
-                            font-size: 14px;
-                            display: flex;
-                            align-items: center;
-                            gap: 8px;
-                            white-space: nowrap;
-                            justify-content: center;
-                        }
-                    }
-                }
-
-                .menu-icon {
-                    display: flex;
-                }
-
-                .btn-start {
-                    display: none;
-                }
+            .btn-start {
+                display: none;
             }
         }
     }

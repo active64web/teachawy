@@ -57,9 +57,33 @@ const Header = () => {
 
                 <nav className={`${openMenu ? "open" : ""}`} ref={menuLinksRef}>
                     <ul>
-                        <li><Link href="/" onClick={() => setOpenMenu(false)}>{t('home')}</Link></li>
-                        <li><Link href="/about" onClick={() => setOpenMenu(false)}>{t('about')}</Link></li>
-                        <li><Link href="/plans" onClick={() => setOpenMenu(false)}>{t('plans')}</Link></li>
+                        <li>
+                            <Link
+                                href="/"
+                                className={pathname === "/" ? "active" : ""}
+                                onClick={() => setOpenMenu(false)}
+                            >
+                                {t('home')}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="/about"
+                                className={pathname === "/about" ? "active" : ""}
+                                onClick={() => setOpenMenu(false)}
+                            >
+                                {t('about')}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="/plans"
+                                className={pathname === "/plans" ? "active" : ""}
+                                onClick={() => setOpenMenu(false)}
+                            >
+                                {t('plans')}
+                            </Link>
+                        </li>
                         <li className="lang" ref={menuRef}>
                             <button onClick={() => setShowLang(prev => !prev)}>
                                 <ChevronDown size={18} /> {locale === "ar" ? "العربية" : "English"}

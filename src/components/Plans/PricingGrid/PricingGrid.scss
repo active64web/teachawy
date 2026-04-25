@@ -31,10 +31,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 20px;
+        gap: 15px; // قللت الفجوة شوية
         margin-bottom: 60px;
         font-weight: 700;
         color: #777;
+
+        .annual-label {
+            display: flex;
+            align-items: center;
+            white-space: nowrap; // تمنع نزول النص سطر جديد
+        }
 
         .active {
             color: var(--main-color);
@@ -49,6 +55,7 @@
             position: relative;
             cursor: pointer;
             transition: 0.3s;
+            flex-shrink: 0; // تمنع انضغاط الزرار
 
             .slider {
                 position: absolute;
@@ -73,10 +80,11 @@
         .save-badge {
             background: #def7ec;
             color: #03543f;
-            padding: 4px 12px;
+            padding: 4px 10px;
             border-radius: 8px;
-            font-size: 12px;
-            margin-inline-start: 12px;
+            font-size: 11px;
+            margin-inline-start: 10px;
+            white-space: nowrap;
         }
     }
 
@@ -118,6 +126,16 @@
                     .curr,
                     .extra-info {
                         color: rgba(255, 255, 255, 0.8);
+                    }
+
+                    .annual-comparison {
+                        .old-total {
+                            color: rgba(255, 255, 255, 0.4);
+                        }
+
+                        .new-total {
+                            color: var(--secondary-color);
+                        }
                     }
                 }
 
@@ -165,7 +183,7 @@
 
             .price-tag {
                 margin-bottom: 30px;
-                min-height: 100px;
+                min-height: 110px;
 
                 .main-price {
                     display: flex;
@@ -185,10 +203,29 @@
                     }
                 }
 
+                .annual-comparison {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin-top: 10px;
+                    font-size: 14px;
+                    font-weight: 700;
+
+                    .old-total {
+                        text-decoration: line-through;
+                        color: #e74c3c;
+                        opacity: 0.8;
+                    }
+
+                    .new-total {
+                        color: #27ae60;
+                    }
+                }
+
                 .extra-info {
                     font-size: 13px;
                     color: #666;
-                    margin-top: 5px;
+                    margin-top: 8px;
                     display: block;
                     font-weight: 600;
                 }

@@ -1,7 +1,7 @@
 'use client';
+import "./PricingGrid.scss";
 import { useState } from 'react';
 import { Check, Info, Plus } from "lucide-react";
-import "./PricingGrid.scss";
 
 const PricingGrid = ({ locale }: { locale: string }) => {
     const isAr = locale === "ar";
@@ -74,6 +74,9 @@ const PricingGrid = ({ locale }: { locale: string }) => {
                 <div className="grid-wrapper">
                     {plans.map((plan, i) => {
                         const currentPrice = isAnnual ? plan.annualPrice : plan.monthlyPrice;
+                        const annualTotal = plan.annualPrice * 12;
+                        const monthlyTotalAsAnnual = plan.monthlyPrice * 12;
+
                         return (
                             <div key={i} className={`plan-card ${plan.featured ? 'featured' : ''}`}>
                                 {plan.featured && <span className="popular">{isAr ? "الأكثر ملاءمة" : "Best Value"}</span>}
@@ -83,7 +86,17 @@ const PricingGrid = ({ locale }: { locale: string }) => {
                                         <span className="num">{currentPrice}</span>
                                         <span className="curr">{isAr ? "ج.م / شهر" : "EGP / mo"}</span>
                                     </div>
-                                    <span className="extra-info">{isAr ? `+ ${plan.extraSeatPrice} لكل مقعد إضافي` : `+ ${plan.extraSeatPrice} per extra seat`}</span>
+
+                                    {isAnnual && (
+                                        <div className="annual-comparison">
+                                            <span className="old-total">{monthlyTotalAsAnnual}{isAr ? " ج.م" : " EGP"}</span>
+                                            <span className="new-total">{annualTotal}{isAr ? " ج.م سنوياً" : " EGP / yr"}</span>
+                                        </div>
+                                    )}
+
+                                    <span className="extra-info">
+                                        {isAr ? `+ ${plan.extraSeatPrice} لكل مقعد إضافي` : `+ ${plan.extraSeatPrice} per extra seat`}
+                                    </span>
                                 </div>
 
                                 <div className="feat-container">
